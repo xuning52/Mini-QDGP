@@ -111,7 +111,8 @@ for step in range(501): # 步数增加，让 VGG 充分引导
     # 损失函数组合：像素损失 (已知区域) + 感知损失 (全局结构)
     pixel_loss = torch.mean(((generated_img - target) * mask)**2)
     # 感知损失强迫生成器“补全”左半边的结构特征
-    vgg_loss = 0.5 * get_perceptual_loss(generated_img, target) 
+    #vgg_loss = 0.5 * get_perceptual_loss(generated_img, target)
+    vgg_loss = 0.5 * get_perceptual_loss(generated_img * mask, corrupted_img * mask) 
     
     loss = pixel_loss + vgg_loss
     loss.backward()

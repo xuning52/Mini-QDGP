@@ -24,8 +24,19 @@
 - **Vision**: VGG16 (Perceptual Loss)
 
 ## 📖 参考文献与致谢
-- **Original Paper**: [Quantum Deep Generative Prior with Programmable Quantum Circuits](https://arxiv.org/abs/2210.02238) by Tailong Xiao, et al.
+- **Original Paper**: [Quantum Deep Generative Prior with Programmable Quantum Circuits](https://doi.org/10.1038/s42005-024-01765-9) by Tailong Xiao, et al.
 - **Inspiration**: 本项目受 Xiao Tailong 老师的研究启发，旨在通过简化代码实现（Mini-version）帮助初学者理解 QDGP 的核心机制。
 
 ## 👤 作者
 Xu Ning (GitHub: [xuning52](https://github.com/xuning52))
+
+---
+
+## [2026-04-25] -- v0.2.0(Perceptual Update)
+**Changed**
+
+- 修正感知损失逻辑：将 VGG Perceptual Loss 的对比对象从原图 (target) 修改为受损图像 (corrupted_img) 的掩模区域。此举解决了训练过程中的“标签泄露（Label Leakage）”问题，确保模型在推理阶段完全基于图像先验进行修复。(感谢@Lyle)
+
+**Added**
+
+- 硬件自适应支持：增加了对 CUDA 设备的自动检测逻辑，优先调用 NVIDIA GPU (如 RTX 5060 Ti) 进行感知特征提取加速。
