@@ -35,7 +35,7 @@ Xu Ning (GitHub: [xuning52](https://github.com/xuning52))
 ## [2026-04-25] -- v0.2.0(Perceptual Update)
 **Changed**
 
-- 修正感知损失逻辑：将 VGG Perceptual Loss 的对比对象从原图 (target) 修改为受损图像 (corrupted_img) 的掩模区域。此举解决了训练过程中的“标签泄露（Label Leakage）”问题，确保模型在推理阶段完全基于图像先验进行修复。(感谢@Lyle)
+- 修正感知损失逻辑：将 VGG Perceptual Loss 的对比对象从原图 (target) 修改为受损图像 (corrupted_img) 的掩模区域。此举解决了训练过程中的“标签泄露（Label Leakage）”问题，确保模型在推理阶段完全基于图像先验进行修复。
 
 **Added**
 
